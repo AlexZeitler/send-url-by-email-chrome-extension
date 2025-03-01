@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Send URL by Email",
+  "version": "1.0",
+  "description": "Send the current page title and URL via email",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "options_page": "options.html"
+}

@@ -1,0 +1,6 @@
+label {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Abstand zwischen Checkbox und E-Mail */
+  white-space: nowrap; /* Verhindert Umbrüche */
+}
