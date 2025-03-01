@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Send URL by Email",
   "version": "1.0",
-  "description": "Send the current page title and URL via email. You can use multiple email addresses.",
+  "description": "Send the current page title and URL by email. You can use multiple email addresses.",
   "permissions": [
     "storage",
     "activeTab"
@@ -10,6 +10,11 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   },
   "options_page": "options.html"
 }
