@@ -24,3 +24,14 @@ With this extension, you can quickly and easily send the current webpage title a
 ✅ Anyone who wants to share information quickly and efficiently
 
 🌟 Install now and boost your productivity! 🌟
+
+## 📸 Screenshots
+
+### Configure email addresses
+![Configure email addresses](docs/screenshot-1.png)
+
+### Browse a website
+![Browse a website](docs/screenshot-2.png)
+
+### Send the link to selected email addresses
+![Send the link to configured email addresses](docs/screenshot-3.png)
