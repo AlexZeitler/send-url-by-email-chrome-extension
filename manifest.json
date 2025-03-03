@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Send URL by Email",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Send the current page title and URL by email. You can use multiple email addresses.",
   "permissions": [
     "storage",

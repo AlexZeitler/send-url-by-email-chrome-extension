@@ -4,3 +4,13 @@ label {
   gap: 5px; /* Abstand zwischen Checkbox und E-Mail */
   white-space: nowrap; /* Verhindert Umbrüche */
 }
+
+.group {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.list {
+  margin-left: 10px;
+}
