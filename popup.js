@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const tagListDiv = document.getElementById("tag-list");
   const sendButton = document.getElementById("send-email");
 
-  let {emails, tags, noDefaultTag} = await chrome.storage.sync.get(["emails", "tags", "noDefaultTag"]);
+  let {emails, tags, noDefaultTag, tagPosition} = await chrome.storage.sync.get(["emails", "tags", "noDefaultTag", "tagPosition"]);
   if (!emails) emails = ["example@example.com", "test@test.com"]; // Default emails
   if (!tags) tags = ["Important", "Work", "Personal"]; // Default tags
 
@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
     if (!tab) return;
 
-    let subject = encodeURIComponent(`${selectedTags} ${tab.title}`.trim());
+    let subject = tagPosition === "suffix"
+      ? encodeURIComponent(`${tab.title} ${selectedTags}`.trim())
+      : encodeURIComponent(`${selectedTags} ${tab.title}`.trim());
     let body = encodeURIComponent(tab.url);
     let mailtoLink = `mailto:${selectedEmails.join(",")}?subject=${subject}&body=${body}`;
 
