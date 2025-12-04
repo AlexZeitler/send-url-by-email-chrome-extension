@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const tagListDiv = document.getElementById("tag-list");
   const sendButton = document.getElementById("send-email");
 
-  let {emails, tags} = await chrome.storage.sync.get(["emails", "tags"]);
+  let {emails, tags, noDefaultTag} = await chrome.storage.sync.get(["emails", "tags", "noDefaultTag"]);
   if (!emails) emails = ["example@example.com", "test@test.com"]; // Default emails
   if (!tags) tags = ["Important", "Work", "Personal"]; // Default tags
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.value = tag;
-    if (index === 0) checkbox.checked = true; // First tag preselected
+    if (index === 0 && !noDefaultTag) checkbox.checked = true; // First tag preselected unless disabled
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(tag));
     tagListDiv.appendChild(label);
