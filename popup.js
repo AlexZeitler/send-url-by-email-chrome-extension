@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   const tagListDiv = document.getElementById("tag-list");
   const sendButton = document.getElementById("send-email");
 
-  let {emails, tags, noDefaultTag, tagPosition} = await chrome.storage.sync.get(["emails", "tags", "noDefaultTag", "tagPosition"]);
+  let {emails, tags, noDefaultTag, tagsInSubject, tagsInBody, tagPositionSubject, tagPositionBody} =
+    await chrome.storage.sync.get(["emails", "tags", "noDefaultTag", "tagsInSubject", "tagsInBody", "tagPositionSubject", "tagPositionBody"]);
   if (!emails) emails = ["example@example.com", "test@test.com"]; // Default emails
   if (!tags) tags = ["Important", "Work", "Personal"]; // Default tags
 
@@ -41,10 +42,28 @@ document.addEventListener("DOMContentLoaded", async function () {
     let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
     if (!tab) return;
 
-    let subject = tagPosition === "suffix"
-      ? encodeURIComponent(`${tab.title} ${selectedTags}`.trim())
-      : encodeURIComponent(`${selectedTags} ${tab.title}`.trim());
-    let body = encodeURIComponent(tab.url);
+    // Build subject (default: tags in subject)
+    let subjectText;
+    if (tagsInSubject !== false && selectedTags) {
+      subjectText = tagPositionSubject === "suffix"
+        ? `${tab.title} ${selectedTags}`
+        : `${selectedTags} ${tab.title}`;
+    } else {
+      subjectText = tab.title;
+    }
+
+    // Build body
+    let bodyText;
+    if (tagsInBody && selectedTags) {
+      bodyText = tagPositionBody === "suffix"
+        ? `${tab.url}\n${selectedTags}`
+        : `${selectedTags}\n${tab.url}`;
+    } else {
+      bodyText = tab.url;
+    }
+
+    let subject = encodeURIComponent(subjectText.trim());
+    let body = encodeURIComponent(bodyText.trim());
     let mailtoLink = `mailto:${selectedEmails.join(",")}?subject=${subject}&body=${body}`;
 
     window.location.href = mailtoLink;
