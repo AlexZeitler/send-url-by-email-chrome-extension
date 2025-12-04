@@ -8,8 +8,12 @@ With this extension, you can quickly and easily send the current webpage title a
 
 ✔ One-click sharing – Send webpages with just one click using your preferred email client
 ✔ Customizable recipient list – Save frequently used email addresses for quick selection
+✔ Add tags with preselected default tag (optional)
+✔ Prefix / suffix tags in subject
+✔ Prefix / suffix tags in body
 ✔ Clean user interface – Simple and intuitive, without unnecessary clutter
 ✔ No external servers – All data stays local on your device
+
 ## 🔧 How it works:
 
 1️⃣ Click on the extension icon
