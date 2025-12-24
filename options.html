@@ -6,10 +6,42 @@
           defer></script>
 </head>
 <body>
+<h3>Display</h3>
+<label>
+  <input type="checkbox" id="compact-mode">
+  Compact mode (reduced spacing)
+</label>
+<br>
+<label>
+  <input type="checkbox" id="sticky-header">
+  Sticky header
+</label>
+<br>
+<label>
+  <input type="checkbox" id="show-top-send-button">
+  Show top send button when scrolling needed
+</label>
+<br>
+<label>
+  <input type="checkbox" id="show-bottom-send-button" checked>
+  Show bottom send button
+</label>
+
 <h3>Manage Email Addresses</h3>
 <textarea id="email-input"
           rows="5"
           cols="30"></textarea>
+<br>
+<label>
+  <input type="checkbox" id="show-name-only">
+  Show name only
+</label>
+<br>
+<label>
+  <input type="checkbox" id="emails-grid-layout">
+  Grid layout (requires "Show name only")
+</label>
+
 <h3>Manage Tags</h3>
 <textarea id="tag-input"
           rows="5"
@@ -18,6 +50,11 @@
 <label>
   <input type="checkbox" id="no-default-tag">
   No default tag auto selection
+</label>
+<br>
+<label>
+  <input type="checkbox" id="tags-grid-layout">
+  Grid layout
 </label>
 <h3>Include Tags in</h3>
 <label>
